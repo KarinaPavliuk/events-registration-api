@@ -7,8 +7,8 @@ import { HttpError } from "../helpers/HttpError.js";
 
 export const register = async (req, res) => {
   console.log(req.body);
-  const { email } = req.body;
-  const user = await User.findOne({ email });
+  const { email, event } = req.body;
+  const user = await User.findOne({ email, event });
 
   if (user) {
     throw HttpError(409, "Email already in use");
