@@ -25,6 +25,10 @@ const userSchema = new Schema({
     // enum: ["Social media", "Friends", "Found myself"],
     required: true,
   },
+  event: {
+    type: String,
+    required: true,
+  }
 }, { versionKey: false, timestamps: true });
 
 userSchema.post("save", handleMongooseError);
@@ -33,7 +37,8 @@ const registerSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().pattern(emailRegexp).required(),
   date: Joi.string().required(),
-  radio: Joi.string().required()
+  radio: Joi.string().required(),
+  event: Joi.string().required(),
 });
 
 const schemas = { registerSchema };
