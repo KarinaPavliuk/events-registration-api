@@ -1,5 +1,5 @@
 import { Event } from "../models/event.js";
-import { HttpError } from "../helpers/HttpError.js";
+// import { HttpError } from "../helpers/HttpError.js";
 
 export const getAllEvents = async (req, res) => {
   const result = await Event.find();

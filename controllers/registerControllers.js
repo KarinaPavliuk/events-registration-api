@@ -1,11 +1,12 @@
 import { User } from "../models/user.js";
 import { HttpError } from "../helpers/HttpError.js";
 // import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 
-const { SECRET_KEY } = process.env;
+// const { SECRET_KEY } = process.env;
 
 export const register = async (req, res) => {
+  console.log(req.body);
   const { email } = req.body;
   const user = await User.findOne({ email });
 
@@ -15,7 +16,7 @@ export const register = async (req, res) => {
 
   // const hashPassword = await bcrypt.hash(password, 10);
 
-  const newUser = await User.create(...req.body);
+  const newUser = await User.create({...req.body});
 
   res.status(201).json({
     name: newUser.name,
@@ -24,3 +25,9 @@ export const register = async (req, res) => {
     radio: newUser.radio,
   })
 }
+
+export const getUsers = async (req, res) => {
+  const result = await User.find();
+
+  res.json(result);
+};
