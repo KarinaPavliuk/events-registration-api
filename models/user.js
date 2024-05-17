@@ -29,7 +29,6 @@ const userSchema = new Schema({
     required: true,
   }
 }, { versionKey: false, timestamps: true });
-userSchema.index({ email: 1, event: 1 }, { unique: true });
 
 userSchema.post("save", handleMongooseError);
 
