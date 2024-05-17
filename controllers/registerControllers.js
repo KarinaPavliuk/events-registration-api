@@ -11,7 +11,7 @@ export const register = async (req, res) => {
   const user = await User.findOne({ email, event });
 
   if (user) {
-    throw HttpError(409, "Email already in use");
+    throw HttpError(409, "User is already register");
   }
 
   // const hashPassword = await bcrypt.hash(password, 10);
