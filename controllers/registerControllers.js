@@ -2,8 +2,8 @@ import { User } from "../models/user.js";
 import { HttpError } from "../helpers/HttpError.js";
 
 export const register = async (req, res) => {
-  const { email, event } = req.body;
-  const user = await User.findOne({ email, event });
+  const { email } = req.body;
+  const user = await User.findOne({ email });
 
   if (user) {
     throw HttpError(409, "User is already register");
