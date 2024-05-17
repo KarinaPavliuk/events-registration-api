@@ -23,6 +23,7 @@ export const register = async (req, res) => {
     email: newUser.email,
     date: newUser.date,
     radio: newUser.radio,
+    event: newUser.event,
   })
 }
 
