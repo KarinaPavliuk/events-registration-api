@@ -14,7 +14,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     match: emailRegexp,
-    unique: true,
+    // unique: true,
   },
   date: {
     type: String,
